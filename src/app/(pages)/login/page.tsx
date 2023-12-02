@@ -32,7 +32,7 @@ export default async function Login() {
         <RenderParams className={classes.params} />
         <div className={classes.formTitle}>
           <h3>Welcome Back</h3>
-          <Image src={'/assets/icons/hand.png'} alt={'Hand'} width={30} height={30} />
+          <Image src={'/assets/icons/hand.png'} alt={'Hand'} width={30} height={30} className={classes.hand} />
         </div>
         <p>Login or create an account to get started.</p>
           <LoginForm />
