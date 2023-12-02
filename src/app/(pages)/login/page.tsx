@@ -21,6 +21,7 @@ export default async function Login() {
     <div className={classes.heroImg}>
       <Link href={'/'}>
       <div className={classes.logoContainer}>
+      <div className={classes.logoBackground}></div>
         <Image src='logo-dark.svg' alt='Logo' width={150} height={13} className={classes.logo} />
       </div>
       </Link>
@@ -30,7 +31,7 @@ export default async function Login() {
       <div className={classes.formContainer}>
         <RenderParams className={classes.params} />
         <div className={classes.formTitle}>
-          <h3>Login</h3>
+          <h3>Welcome Back</h3>
           <Image src={'/assets/icons/hand.png'} alt={'Hand'} width={30} height={30} />
         </div>
         <p>Login or create an account to get started.</p>
