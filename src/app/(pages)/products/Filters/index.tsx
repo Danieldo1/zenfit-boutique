@@ -42,13 +42,13 @@ const Filters = ({categories}: {categories: Category[]}) => {
 
             <h6 className={classes.title}>Sort</h6>
             <div className={classes.categories}>
-                <RadioBtn label='Latest'
+                <RadioBtn label='Newest'
                 value='-createdAt'
                 isSelected={sort === '-createdAt'}
                 onRadioChange={handleSort}
                 groupName='sort'
                 />
-                <RadioBtn label='Oldest'
+                <RadioBtn label='Most Popular'
                 value='createdAt'
                 isSelected={sort === 'createdAt'}
                 onRadioChange={handleSort}
