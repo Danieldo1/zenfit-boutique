@@ -13,18 +13,22 @@ const [quantity,setQuantity] = useState(qty)
 
 
 const incrementQuantity = () => {
-    setQuantity(quantity + 1)
-    addItemToCart(product,quantity + 1)
+    const newQuantity = quantity + 1
+    setQuantity(newQuantity)
+    addItemToCart({product,quantity:Number(newQuantity)})
 }
 
 const decrementQuantity = () => {
-    setQuantity(quantity - 1)
-    addItemToCart(product,quantity - 1)
+    const newQuantity = quantity >1 ? quantity - 1 : 1
+    setQuantity(newQuantity)
+    addItemToCart({product,quantity:Number(newQuantity)})
 }
 
-const enterQuantity = (e) => {
-    setQuantity(e.target.value)
-    addItemToCart(product,e.target.value)
+const enterQuantity = (e:React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    const newQuantity = Number(e.target.value)
+    setQuantity(newQuantity)
+    addItemToCart({product,quantity:Number(newQuantity)})
 }
 
   return (

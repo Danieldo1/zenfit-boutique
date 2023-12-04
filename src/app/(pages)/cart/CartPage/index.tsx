@@ -55,19 +55,18 @@ export const CartPage: React.FC<{
               )}
             </div>
           ) : (
-            <div className={classes.items}>
-              <div className={classes.itemsTotal}>
-                {`There ${cart?.items?.length === 1 ? 'is' : 'are'} ${cart?.items?.length} item${
-                  cart?.items?.length === 1 ? '' : 's'
-                } in your cart.`}
-                {!user && (
-                  <Fragment>
-                    {' '}
-                    <Link href={`/login?redirect=%2Fcart`}>Log in</Link>
-                    {` to save your progress.`}
-                  </Fragment>
-                )}
-              </div>
+            <div className={classes.cartWrapper}>
+              <div>
+                <div className={classes.header}>
+                  <p>Products</p>
+                  <div className={classes.headerItemDetails}>
+                    <p></p>
+                    <p></p>
+                    <p>Quantity</p>
+                  </div>
+                  <p className={classes.headersubtotal}>Subtotal</p>
+                </div>
+                <ul className={classes.itemsList}>
               {cart?.items?.map((item, index) => {
                 if (typeof item.product === 'object') {
                   const {
@@ -91,17 +90,31 @@ export const CartPage: React.FC<{
 
                     />
                   )
-                }
+                } 
                 return null
               })}
-              <HR />
-              <h5 className={classes.cartTotal}>{`Total: ${cartTotal.formatted}`}</h5>
-              <Button
+               </ul>
+              </div>
+              
+              <div className={classes.summary}> 
+              <div className={classes.row} >
+                <h6 className={classes.cartTotal}>Cart Total</h6>
+              </div>
+              <div className={classes.row} >
+                <p className={classes.cartTotal}>Shipping</p>
+                <p className={classes.cartTotal}>$0</p>
+              </div>
+              <div className={classes.row} >
+                <p className={classes.cartTotal}>Grand Total</p>
+                <p className={classes.cartTotal}>{cartTotal.formatted}</p>
+              </div>
+            <Button
                 className={classes.checkoutButton}
                 href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
                 label={user ? 'Checkout' : 'Login to checkout'}
                 appearance="primary"
               />
+              </div>
             </div>
           )}
         </Fragment>
